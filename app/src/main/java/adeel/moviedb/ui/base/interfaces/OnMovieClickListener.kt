@@ -1,4 +1,4 @@
-package adeel.moviedb.ui.main.base.interfaces
+package adeel.moviedb.ui.base.interfaces
 
 interface OnMovieClickListener {
     fun onMovieClickListener(movie:Movie)

@@ -1,4 +1,4 @@
-package adeel.moviedb.ui.main.base.boundaryCallbacks
+package adeel.moviedb.ui.base.boundaryCallbacks
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData

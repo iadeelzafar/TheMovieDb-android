@@ -1,9 +1,8 @@
-package adeel.moviedb.ui.main.base.boundaryCallbacks
+package adeel.moviedb.ui.base.boundaryCallbacks
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.PagedList
-import android.util.Log
 import java.util.*
 
 /**
