@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@drawable/bg_ripple"
+    android:paddingStart="12dp"
+    android:paddingTop="2dp"
+    android:paddingEnd="12dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:padding="4dp"
+        android:id="@+id/item_more_image"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        android:textColor="?attr/primaryTextColor"
+        android:layout_marginTop="8dp"
+        android:id="@+id/item_more_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLength="40"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toEndOf="@+id/item_more_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:singleLine="true"
+        android:maxLength="30"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_regular"
+        android:id="@+id/item_more_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/secondaryTextColor"
+        app:layout_constraintEnd_toEndOf="@+id/item_more_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/item_more_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_more_name" />
+
+    <View
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/dividerColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

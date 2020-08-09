@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.main.views.activities.DetailActivity"></activity>
+        <activity android:name=".ui.main.views.activities.SearchActivity" />
+        <activity android:name=".ui.main.views.activities.MoviesActivity" />
         <activity android:name=".ui.main.views.activities.CoroutinesSplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
