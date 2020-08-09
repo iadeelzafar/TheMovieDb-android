@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.views.activities.DetailActivity"></activity>
+        <activity android:name=".ui.main.views.activities.SettingsActivity"></activity>
+        <activity android:name=".ui.main.views.activities.DetailActivity" />
         <activity android:name=".ui.main.views.activities.SearchActivity" />
         <activity android:name=".ui.main.views.activities.MoviesActivity" />
         <activity android:name=".ui.main.views.activities.CoroutinesSplashActivity">
