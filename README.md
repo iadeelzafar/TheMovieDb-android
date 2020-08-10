@@ -26,6 +26,7 @@ See your results offline. Built using Room.
 * Glide
 * Paging
 * MVVM architecture
+* Kotlin coroutines
 
 ### Usage
 Go to ```app/java/adeel/moviedb/API_KEY.kt``` and replace the dummy string with your TMDb API key
