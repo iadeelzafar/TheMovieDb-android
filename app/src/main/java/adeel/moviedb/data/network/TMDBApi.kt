@@ -1,4 +1,4 @@
-package adeel.moviedb.data.models
+package adeel.moviedb.data.network
 
 import android.util.Log
 import retrofit2.Call
