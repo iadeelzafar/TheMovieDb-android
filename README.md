@@ -8,6 +8,7 @@ Minimalist android movie database app built using Kotlin on top of TMDb API
 Built using Kotlin Coroutines.
 
 #### Movies list
+
 2 Fragments i.e. Now Showing and Popular Movies (Poster, Title, Release date, Overview text)
 
 #### Detailed view 
