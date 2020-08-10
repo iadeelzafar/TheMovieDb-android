@@ -18,3 +18,11 @@ Search in a directory of over 500,000+ movies
 
 #### Local Cache 
 See your results offline. Built using Room.
+
+### Libraries/Arch used:
+* OkHttp3
+* Retrofit
+* Jetpack (LiveData, Lifecycle, Room)
+* Glide
+* Paging
+* MVVM architecture
