@@ -26,3 +26,8 @@ See your results offline. Built using Room.
 * Glide
 * Paging
 * MVVM architecture
+
+### Usage
+Go to ```app/java/adeel/moviedb/API_KEY.kt``` and replace the dummy string with your TMDb API key
+
+``` val TMDB_API_KEY = "YOUR_API_KEY_HERE" ```
