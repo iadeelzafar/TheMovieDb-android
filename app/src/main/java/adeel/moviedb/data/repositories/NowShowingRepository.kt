@@ -1,10 +1,15 @@
 package adeel.moviedb.data.repositories
 
-import android.arch.paging.LivePagedListBuilder
+import adeel.moviedb.data.database.databaseResults.NowShowingResults
+import adeel.moviedb.data.database.localCache.NowShowingLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.boundaryCallbacks.NowShowingBoundaryCallbacks
+import androidx.paging.LivePagedListBuilder
+
 
 class NowShowingRepository(
-        private val service: NetworkService,
-        private val nowShowingCache: NowShowingLocalCache
+    private val service: NetworkService,
+    private val nowShowingCache: NowShowingLocalCache
 ) {
 
     fun nowShowing(region: String): NowShowingResults {

@@ -17,7 +17,9 @@ class  AppExecutors {
             private var mainThreadHandler: Handler = Handler(Looper.getMainLooper())
 
             override fun execute(p0: Runnable?) {
-                mainThreadHandler.post(p0)
+                if (p0 != null) {
+                    mainThreadHandler.post(p0)
+                }
             }
 
         }

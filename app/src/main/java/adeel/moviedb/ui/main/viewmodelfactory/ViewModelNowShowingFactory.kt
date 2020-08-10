@@ -1,7 +1,9 @@
 package adeel.moviedb.ui.main.viewmodelfactory
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import adeel.moviedb.data.repositories.NowShowingRepository
+import adeel.moviedb.ui.main.viewmodels.NowShowingViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class ViewModelNowShowingFactory(private val repository: NowShowingRepository) : ViewModelProvider.Factory {
 

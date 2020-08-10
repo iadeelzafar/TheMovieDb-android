@@ -1,11 +1,16 @@
 package adeel.moviedb.ui.main.adapters
 
+import adeel.moviedb.R
+import adeel.moviedb.data.models.MovieVideo
+import adeel.moviedb.ui.base.interfaces.OnVideoClickListener
+import adeel.moviedb.ui.main.viewholders.VideoViewHolder
+import adeel.moviedb.utils.Helpers.buildYouTubeThumbnailURL
 import android.content.Context
 import android.content.SharedPreferences
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade

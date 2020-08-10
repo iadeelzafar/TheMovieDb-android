@@ -1,10 +1,15 @@
 package adeel.moviedb.data.repositories
 
-import android.arch.paging.LivePagedListBuilder
+import adeel.moviedb.data.database.databaseResults.PopularResults
+import adeel.moviedb.data.database.localCache.PopularLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.boundaryCallbacks.PopularBoundaryCallbacks
+import androidx.paging.LivePagedListBuilder
+
 
 class PopularRepository(
-        private val service: NetworkService,
-        private val popularCache: PopularLocalCache
+    private val service: NetworkService,
+    private val popularCache: PopularLocalCache
 ) {
 
     fun popular(region: String): PopularResults {

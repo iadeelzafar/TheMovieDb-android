@@ -1,7 +1,8 @@
 package adeel.moviedb.data.database.entities
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import adeel.moviedb.utils.Constants.Companion.POPULAR
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "popular")

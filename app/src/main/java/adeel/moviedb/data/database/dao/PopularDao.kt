@@ -1,9 +1,8 @@
 package adeel.moviedb.data.database.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.DataSource
-import android.arch.paging.PagedList
-import android.arch.persistence.room.*
+import adeel.moviedb.data.database.entities.PopularEntry
+import androidx.paging.DataSource
+import androidx.room.*
 
 /**
  * Popular is the class to CRUD our Popular movies in the Room database

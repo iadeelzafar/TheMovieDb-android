@@ -1,7 +1,8 @@
 package adeel.moviedb.data.database.databaseResults
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.PagedList
+import adeel.moviedb.data.database.entities.PopularEntry
+import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 
 data class PopularResults(
         val data: LiveData<PagedList<PopularEntry>>,

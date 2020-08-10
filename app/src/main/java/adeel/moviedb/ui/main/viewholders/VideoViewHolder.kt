@@ -1,14 +1,18 @@
 package adeel.moviedb.ui.main.viewholders
 
+import adeel.moviedb.R
+import adeel.moviedb.data.models.MovieVideo
+import adeel.moviedb.ui.base.interfaces.OnVideoClickListener
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 
 class VideoViewHolder(itemView: View?,
                       val context: Context,
                       val movieVideoList: List<MovieVideo>,
-                      val listener: OnVideoClickListener): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+                      val listener: OnVideoClickListener
+): RecyclerView.ViewHolder(itemView!!), View.OnClickListener {
 
     var mVideoImage: ImageView
     init{

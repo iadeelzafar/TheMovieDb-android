@@ -1,11 +1,15 @@
 package adeel.moviedb.data.repositories
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.paging.LivePagedListBuilder
+import adeel.moviedb.data.database.databaseResults.SearchResults
+import adeel.moviedb.data.database.localCache.SearchLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.boundaryCallbacks.SearchBoundaryCallbacks
+import androidx.lifecycle.MutableLiveData
+import androidx.paging.LivePagedListBuilder
 
 class SearchRepository(
-        private val service: NetworkService,
-        private val searchCache: SearchLocalCache
+    private val service: NetworkService,
+    private val searchCache: SearchLocalCache
 ) {
 
     private var lastRequestedPage = 1

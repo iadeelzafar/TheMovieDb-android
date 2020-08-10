@@ -1,10 +1,15 @@
 package adeel.moviedb.ui.main.views.fragments
 
 import adeel.moviedb.R
+import adeel.moviedb.data.Injection
+import adeel.moviedb.data.database.CacheDatabase
+import adeel.moviedb.data.database.entities.PopularEntry
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.ui.main.adapters.PopularAdapter
+import adeel.moviedb.ui.main.viewmodels.PopularViewModel
 import adeel.moviedb.ui.main.views.activities.DetailActivity
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.arch.paging.PagedList
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -16,6 +21,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -146,7 +154,7 @@ class PopularMoviesFragment : Fragment(), OnMovieClickListener, SharedPreference
     }
 
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         configureRecyclerAdapter(newConfig!!.orientation)
     }

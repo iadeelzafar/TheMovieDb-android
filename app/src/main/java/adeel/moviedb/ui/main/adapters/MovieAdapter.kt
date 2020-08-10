@@ -1,19 +1,26 @@
 package adeel.moviedb.ui.main.adapters
 
+import adeel.moviedb.R
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.ui.main.viewholders.MovieViewHolder
+import adeel.moviedb.ui.main.viewholders.ProgressBarViewHolder
+import adeel.moviedb.utils.Constants.Companion.CONTENT_MOVIE
+import adeel.moviedb.utils.DateUtils
+import adeel.moviedb.utils.Helpers.buildImageUrl
 import android.content.Context
 import android.content.SharedPreferences
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.Adapter
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
 
-class MovieAdapter(movieList: List<Movie>,listener: OnMovieClickListener, private val sharedPreferences: SharedPreferences) : Adapter<RecyclerView.ViewHolder>() {
+class MovieAdapter(movieList: List<Movie>, listener: OnMovieClickListener, private val sharedPreferences: SharedPreferences) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private lateinit var content: Context
     private var mListener: OnMovieClickListener

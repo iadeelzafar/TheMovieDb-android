@@ -1,10 +1,13 @@
 package adeel.moviedb.ui.main.viewmodels
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Transformations
-import android.arch.lifecycle.ViewModel
-import android.arch.paging.PagedList
+import adeel.moviedb.data.database.databaseResults.SearchResults
+import adeel.moviedb.data.database.entities.SearchEntry
+import adeel.moviedb.data.repositories.SearchRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 
 class SearchViewModel(private val repository: SearchRepository) : ViewModel() {
 

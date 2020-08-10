@@ -1,17 +1,22 @@
-package kashish.com
+package adeel.moviedb.data
 
-import android.arch.lifecycle.ViewModelProvider
+import adeel.moviedb.data.database.CacheDatabase
+import adeel.moviedb.data.database.localCache.NowShowingLocalCache
+import adeel.moviedb.data.database.localCache.PopularLocalCache
+import adeel.moviedb.data.database.localCache.SearchLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.data.repositories.MovieDetailsRepository
+import adeel.moviedb.data.repositories.NowShowingRepository
+import adeel.moviedb.data.repositories.PopularRepository
+import adeel.moviedb.data.repositories.SearchRepository
+import adeel.moviedb.ui.main.viewmodelfactory.ViewModelDetailFactory
+import adeel.moviedb.ui.main.viewmodelfactory.ViewModelNowShowingFactory
+import adeel.moviedb.ui.main.viewmodelfactory.ViewModelPopularFactory
+import adeel.moviedb.ui.main.viewmodelfactory.ViewModelSearchFactory
 import android.content.Context
-import kashish.com.ViewModelFactory.*
-import kashish.com.repositories.*
-import kashish.com.database.CacheDatabase
-import kashish.com.database.LocalCache.*
-import kashish.com.network.NetworkService
+import androidx.lifecycle.ViewModelProvider
 import java.util.concurrent.Executors
 
-/**
- * Created by Kashish on 13-08-2018.
- */
 object Injection {
 
     private fun provideSearchCache(context: Context): SearchLocalCache {

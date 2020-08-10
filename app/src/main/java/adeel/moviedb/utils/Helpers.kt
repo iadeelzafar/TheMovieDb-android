@@ -1,5 +1,9 @@
 package adeel.moviedb.utils
 
+import adeel.moviedb.API_KEY.Companion.TMDB_API_KEY
+import adeel.moviedb.utils.DateUtils.Companion.getDateFromEpoch
+import adeel.moviedb.utils.DateUtils.Companion.getYear
+import adeel.moviedb.utils.Urls.Companion.MOVIE_DETAILS_BASE_URL
 import android.graphics.Color
 import android.os.Build
 import android.view.View

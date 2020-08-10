@@ -1,8 +1,13 @@
 package adeel.moviedb.ui.base.boundaryCallbacks
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.paging.PagedList
+import adeel.moviedb.data.database.entities.NowShowingEntity
+import adeel.moviedb.data.database.localCache.NowShowingLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.data.network.getNowShowingMovies
+import adeel.moviedb.utils.Constants
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagedList
 import java.util.*
 
 /**
@@ -10,9 +15,10 @@ import java.util.*
  */
 
 class NowShowingBoundaryCallbacks(
-        private val region: String,
-        private val service: NetworkService,
-        private val cache: NowShowingLocalCache) : PagedList.BoundaryCallback<NowShowingEntity>() {
+    private val region: String,
+    private val service: NetworkService,
+    private val cache: NowShowingLocalCache
+) : PagedList.BoundaryCallback<NowShowingEntity>() {
 
     // When the request is successful, increment the page number. The goal is to always keep the last requested page.
     var lastRequestedPage: Int = (cache.getAllItemsInNowShowing()/20) + 1

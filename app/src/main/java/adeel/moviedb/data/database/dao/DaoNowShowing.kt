@@ -1,7 +1,8 @@
 package adeel.moviedb.data.database.dao
 
-import android.arch.paging.DataSource
-import android.arch.persistence.room.*
+import adeel.moviedb.data.database.entities.NowShowingEntity
+import androidx.paging.DataSource
+import androidx.room.*
 
 /**
  * DaoNowShowing is the class to CRUD our NowShowing movies in the Room database

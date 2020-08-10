@@ -1,6 +1,6 @@
 package adeel.moviedb.data.database.converters
 
-import android.arch.persistence.room.TypeConverter
+import androidx.room.TypeConverter
 
 class ListConverter {
     @TypeConverter

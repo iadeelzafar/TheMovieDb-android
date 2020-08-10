@@ -1,14 +1,16 @@
 package adeel.moviedb.data.database.localCache
 
-import android.arch.paging.DataSource
+import adeel.moviedb.data.database.dao.DaoNowShowing
+import adeel.moviedb.data.database.entities.NowShowingEntity
+import androidx.paging.DataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Executor
 
 class NowShowingLocalCache(
-        private val nowShowingDao: DaoNowShowing,
-        private val ioExecutor: Executor
+    private val nowShowingDao: DaoNowShowing,
+    private val ioExecutor: Executor
 ) {
 
     /**

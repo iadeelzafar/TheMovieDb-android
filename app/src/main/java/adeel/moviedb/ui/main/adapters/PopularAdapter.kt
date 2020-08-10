@@ -1,13 +1,17 @@
 package adeel.moviedb.ui.main.adapters
 
-import android.arch.paging.PagedListAdapter
+import adeel.moviedb.R
+import adeel.moviedb.data.database.entities.PopularEntry
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.ui.main.viewholders.PopularViewHolder
 import android.content.Context
 import android.content.SharedPreferences
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 
 
 class PopularAdapter(private val listener: OnMovieClickListener,

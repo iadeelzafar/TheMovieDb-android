@@ -1,14 +1,16 @@
 package adeel.moviedb.data.database.localCache
 
-import android.arch.paging.DataSource
+import adeel.moviedb.data.database.dao.PopularDao
+import adeel.moviedb.data.database.entities.PopularEntry
+import androidx.paging.DataSource
 import kotlinx.coroutines.async
 import kotlinx.coroutines.*
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Executor
 
 class PopularLocalCache(
-        private val popularDao: PopularDao,
-        private val ioExecutor: Executor
+    private val popularDao: PopularDao,
+    private val ioExecutor: Executor
 ) {
 
     /**

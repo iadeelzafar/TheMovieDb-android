@@ -1,9 +1,21 @@
 package adeel.moviedb.ui.main.views.fragments
 
+import adeel.moviedb.R
+import adeel.moviedb.data.Injection
+import adeel.moviedb.data.database.CacheDatabase
+import adeel.moviedb.data.database.entities.NowShowingEntity
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.ui.main.adapters.NowShowingAdapter
+import adeel.moviedb.ui.main.viewmodels.NowShowingViewModel
+import adeel.moviedb.ui.main.views.activities.DetailActivity
+import adeel.moviedb.utils.Constants
+import adeel.moviedb.utils.Constants.Companion.NOWSHOWING
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +23,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.preference.PreferenceFragmentCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
+
 
 class NowShowingMoviesFragment : Fragment(), OnMovieClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -44,7 +60,7 @@ class NowShowingMoviesFragment : Fragment(), OnMovieClickListener, SharedPrefere
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        mMainView = inflater.inflate(R.layout.fragment_now_showing, container, false)
+        mMainView = inflater.inflate (R.layout.fragment_now_showing, container, false)
 
         initViews()
         getSelectedRegion()
@@ -168,8 +184,10 @@ class NowShowingMoviesFragment : Fragment(), OnMovieClickListener, SharedPrefere
         return movieList
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        if (newConfig != null) {
+            super.onConfigurationChanged(newConfig)
+        }
         configureRecyclerAdapter(newConfig!!.orientation)
     }
 

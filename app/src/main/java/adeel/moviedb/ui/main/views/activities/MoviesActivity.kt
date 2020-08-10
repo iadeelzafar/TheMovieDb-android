@@ -1,13 +1,21 @@
 package adeel.moviedb.ui.main.views.activities
 
 import adeel.moviedb.R
+import adeel.moviedb.ui.main.adapters.MovieViewPagerAdapter
+import adeel.moviedb.ui.main.views.fragments.NowShowingMoviesFragment
+import adeel.moviedb.ui.main.views.fragments.PopularMoviesFragment
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+
+import androidx.preference.PreferenceManager
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
+
 
 class MoviesActivity : AppCompatActivity() {
 
@@ -69,7 +77,7 @@ class MoviesActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item!!.itemId){
 
             R.id.action_search -> {

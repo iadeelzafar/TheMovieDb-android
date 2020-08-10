@@ -1,5 +1,6 @@
 package adeel.moviedb.data.requestmodels
 
+import adeel.moviedb.data.models.Movie
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 

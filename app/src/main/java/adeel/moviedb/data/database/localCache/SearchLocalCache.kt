@@ -1,13 +1,14 @@
 package adeel.moviedb.data.database.localCache
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.DataSource
+import adeel.moviedb.data.database.dao.SearchDao
+import adeel.moviedb.data.database.entities.SearchEntry
 import android.util.Log
+import androidx.paging.DataSource
 import java.util.concurrent.Executor
 
 class SearchLocalCache(
-        private val searchDao: SearchDao,
-        private val ioExecutor: Executor
+    private val searchDao: SearchDao,
+    private val ioExecutor: Executor
 ) {
 
     /**

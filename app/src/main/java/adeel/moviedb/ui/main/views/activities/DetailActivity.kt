@@ -1,21 +1,48 @@
 package adeel.moviedb.ui.main.views.activities
 
+import adeel.moviedb.R
+import adeel.moviedb.data.Injection
+import adeel.moviedb.data.database.CacheDatabase
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.data.models.MovieDetail
+import adeel.moviedb.data.models.MovieVideo
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.data.requestmodels.MovieVideosRequest
+import adeel.moviedb.ui.base.interfaces.OnVideoClickListener
+import adeel.moviedb.ui.main.adapters.VideoAdapter
+import adeel.moviedb.ui.main.viewmodels.MovieDetailsViewModel
+import adeel.moviedb.utils.DateUtils
+import adeel.moviedb.utils.Helpers
+import adeel.moviedb.utils.Helpers.buildBackdropImageUrl
+import adeel.moviedb.utils.Helpers.buildImageUrl
+import adeel.moviedb.utils.Helpers.setUpTransparentStatusBar
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toolbar
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.CollapsingToolbarLayout
+
 
 class DetailActivity : AppCompatActivity(), OnVideoClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -74,7 +101,7 @@ class DetailActivity : AppCompatActivity(), OnVideoClickListener, SharedPreferen
     }
 
     private fun getMovie(){
-        movie = intent.getParcelableExtra("movie")
+        movie = intent.getParcelableExtra("movie")!!
     }
     private fun initToolBar(){
         collapsingToolbar = findViewById(R.id.activity_detail_collapsing_layout)
@@ -144,9 +171,7 @@ class DetailActivity : AppCompatActivity(), OnVideoClickListener, SharedPreferen
         detailOverView.text = movie.overview
     }
 
-
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item!!.itemId
         if (id == android.R.id.home) {
             onBackPressed()
@@ -157,7 +182,8 @@ class DetailActivity : AppCompatActivity(), OnVideoClickListener, SharedPreferen
 
 
     private fun fetchMovieDetails(){
-        detailsViewModel.getDetails(movieId = movie.id.toString()).observe(this , object: LiveData<MovieDetail>(), Observer<MovieDetail> {
+        detailsViewModel.getDetails(movieId = movie.id.toString()).observe(this , object: LiveData<MovieDetail>(),
+            Observer<MovieDetail> {
             override fun onChanged(t: MovieDetail?) {
                 movieDetail = t!!
 

@@ -1,8 +1,13 @@
 package adeel.moviedb.ui.base.boundaryCallbacks
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.paging.PagedList
+import adeel.moviedb.data.database.entities.PopularEntry
+import adeel.moviedb.data.database.localCache.PopularLocalCache
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.data.network.getPopularMovies
+import adeel.moviedb.utils.Constants
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagedList
 import java.util.*
 
 /**
@@ -10,9 +15,10 @@ import java.util.*
  */
 
 class PopularBoundaryCallbacks(
-        private val region: String,
-        private val service: NetworkService,
-        private val cache: PopularLocalCache) : PagedList.BoundaryCallback<PopularEntry>() {
+    private val region: String,
+    private val service: NetworkService,
+    private val cache: PopularLocalCache
+) : PagedList.BoundaryCallback<PopularEntry>() {
 
     companion object {
         private const val NETWORK_PAGE_SIZE = 50

@@ -1,7 +1,9 @@
 package adeel.moviedb.ui.main.viewmodelfactory
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import adeel.moviedb.data.repositories.SearchRepository
+import adeel.moviedb.ui.main.viewmodels.SearchViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class ViewModelSearchFactory(private val repository: SearchRepository) : ViewModelProvider.Factory {
 

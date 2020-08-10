@@ -1,12 +1,15 @@
 package adeel.moviedb.ui.main.viewmodels
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Transformations
-import android.arch.lifecycle.ViewModel
-import android.arch.paging.PagedList
+import adeel.moviedb.data.database.databaseResults.NowShowingResults
+import adeel.moviedb.data.database.entities.NowShowingEntity
+import adeel.moviedb.data.repositories.NowShowingRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 
-class NowShowingViewModel(private val repository: NowShowingRepository ) : ViewModel() {
+class NowShowingViewModel(private val repository: NowShowingRepository) : ViewModel() {
 
     companion object {
         private const val VISIBLE_THRESHOLD = 5

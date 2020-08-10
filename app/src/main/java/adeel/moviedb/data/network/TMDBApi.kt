@@ -1,5 +1,9 @@
 package adeel.moviedb.data.network
 
+import adeel.moviedb.API_KEY.Companion.TMDB_API_KEY
+import adeel.moviedb.data.models.MovieDetail
+import adeel.moviedb.data.requestmodels.MovieRequest
+import adeel.moviedb.data.requestmodels.MovieVideosRequest
 import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback

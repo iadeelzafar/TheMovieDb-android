@@ -1,22 +1,38 @@
 package adeel.moviedb.ui.main.views.activities
 
 import adeel.moviedb.R
+import adeel.moviedb.data.Injection
+import adeel.moviedb.data.database.AppExecutors
+import adeel.moviedb.data.database.CacheDatabase
+import adeel.moviedb.data.database.entities.SearchEntry
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.data.network.NetworkService
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.ui.main.adapters.SearchAdapter
+import adeel.moviedb.ui.main.viewmodels.SearchViewModel
+import adeel.moviedb.utils.Constants
+import adeel.moviedb.utils.Constants.Companion.SEARCHES
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class SearchActivity : AppCompatActivity(), OnMovieClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -122,7 +138,7 @@ class SearchActivity : AppCompatActivity(), OnMovieClickListener, SharedPreferen
         return movieList
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item!!.getItemId()
         if (id == android.R.id.home) {
             onBackPressed()
@@ -131,8 +147,10 @@ class SearchActivity : AppCompatActivity(), OnMovieClickListener, SharedPreferen
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        if (newConfig != null) {
+            super.onConfigurationChanged(newConfig)
+        }
         configureRecyclerAdapter(newConfig!!.orientation)
     }
 

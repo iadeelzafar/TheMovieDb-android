@@ -1,8 +1,9 @@
 package adeel.moviedb.data.database.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.DataSource
-import android.arch.persistence.room.*
+import adeel.moviedb.data.database.entities.SearchEntry
+import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
+import androidx.room.*
 
 /**
  * SearchDao is the class to CRUD our Searched movies in the Room database

@@ -1,5 +1,6 @@
 package adeel.moviedb.data.models
 
+import adeel.moviedb.utils.Constants
 import android.os.Parcel
 import android.os.Parcelable.Creator
 import android.os.Parcelable
@@ -74,7 +75,7 @@ class Movie() : Parcelable {
         adult = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
         overview = parcel.readString()
         releaseDate = parcel.readString()
-        genreString = parcel.readString()
+        genreString = parcel.readString().toString()
         contentType = parcel.readInt()
         tableName = parcel.readValue(Int::class.java.classLoader) as? Int
     }

@@ -1,11 +1,11 @@
 package adeel.moviedb.ui.main.adapters
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 
 
-class MovieViewPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+class MovieViewPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!) {
 
     var fragmentList : MutableList<Fragment> = arrayListOf()
     var fragmentTitleList : MutableList<String> = arrayListOf()

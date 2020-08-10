@@ -1,12 +1,19 @@
 package adeel.moviedb.ui.main.viewholders
 
+import adeel.moviedb.R
+import adeel.moviedb.data.database.entities.PopularEntry
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.utils.Constants
+import adeel.moviedb.utils.DateUtils
+import adeel.moviedb.utils.Helpers
 import android.content.Context
 import android.content.SharedPreferences
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -14,7 +21,8 @@ import com.bumptech.glide.request.RequestOptions
 
 class PopularViewHolder(itemView: View?,
                            val context: Context,
-                           val listener: OnMovieClickListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+                           val listener: OnMovieClickListener
+) : RecyclerView.ViewHolder(itemView!!), View.OnClickListener {
 
     var movieTitle: TextView
     var movieReleaseDate: TextView

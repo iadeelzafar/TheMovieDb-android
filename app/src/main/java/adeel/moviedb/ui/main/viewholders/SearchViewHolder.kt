@@ -1,13 +1,17 @@
 package adeel.moviedb.ui.main.viewholders
 
+import adeel.moviedb.R
+import adeel.moviedb.data.database.entities.SearchEntry
+import adeel.moviedb.data.models.Movie
+import adeel.moviedb.ui.base.interfaces.OnMovieClickListener
+import adeel.moviedb.utils.Constants
+import adeel.moviedb.utils.Helpers
 import android.content.Context
 import android.content.SharedPreferences
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RatingBar
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -15,7 +19,8 @@ import com.bumptech.glide.request.RequestOptions
 
 class SearchViewHolder(itemView: View?,
                        val context: Context,
-                       private val listener: OnMovieClickListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+                       private val listener: OnMovieClickListener
+) : RecyclerView.ViewHolder(itemView!!), View.OnClickListener {
 
 
 
@@ -51,7 +56,7 @@ class SearchViewHolder(itemView: View?,
         }
     }
 
-    private fun convertEntryToMovieList(movie: SearchEntry): Movie{
+    private fun convertEntryToMovieList(movie: SearchEntry): Movie {
             val passMovie = Movie()
             passMovie.id = movie.movieId
             passMovie.voteCount = movie.voteCount
